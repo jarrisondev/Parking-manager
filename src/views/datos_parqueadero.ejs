@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Datos Parqueadero</title>
+		<link rel="stylesheet" href="/globals.css" />
+		<link rel="shortcut icon" href="/icon.png" type="image/x-icon" />
+	</head>
+	<body>
+		<a href="/">Volver</a>
+		<div>
+			<h1>Datos del parqueadero</h1>
+			<br />
+			<h2>Parqueadero para <%= tamaño%> vehículos</h2>
+			<p>
+				Vehículos parqueados actualmente con mensualidad: <%= vehiculosConM%>
+			</p>
+			<p>
+				Vehículos parqueados actualmente sin mensualidad: <%= vehiculosSinM%>
+			</p>
+			<h2>Total vehículos parqueados: <%= total%></h2>
+			<br />
+			<p>
+				Espacios disponibles para vehículos sin mensualidad: <%= espacioSinM%>
+			</p>
+			<p>vehículos con mensualidad: <%= espacioConM%></p>
+		</div>
+		<br />
+		<br />
+		<div class="">
+			<h2>Vehículos actualmente en el parqueadero</h2>
+			<table id="tabla_p" border="1">
+				<thead>
+					<th>Placa</th>
+					<th>Color</th>
+					<th>Fecha de ingreso</th>
+					<th>Mensualidad</th>
+				</thead>
+				<tbody>
+					<% datosParqueadero.forEach((dat) =>{ %>
+					<tr>
+						<td><%= dat.PLACA %></td>
+						<td><%= dat.COLOR %></td>
+						<td><%= dat.FECHA %></td>
+						<td><%= dat.MENSUALIDAD === 1 ? 'Sí' : 'No' %></td>
+					</tr>
+					<% }); %>
+				</tbody>
+			</table>
+			<br />
+			<br />
+			<br />
+			<h2>Vehículos con mensualidad</h2>
+			<table id="tabla_m" border="1">
+				<thead>
+					<th>Placa</th>
+					<th>Marca</th>
+					<th>Color</th>
+					<th>Nombre Conductor</th>
+				</thead>
+				<tbody>
+					<% datosMensualidad.forEach((dat) =>{ %>
+					<tr>
+						<td><%= dat.PLACA %></td>
+						<td><%= dat.MARCA %></td>
+						<td><%= dat.COLOR %></td>
+						<td><%= dat.NOMBRE_C %></td>
+					</tr>
+					<% }); %>
+				</tbody>
+			</table>
+		</div>
+	</body>
+</html>
